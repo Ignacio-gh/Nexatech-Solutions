@@ -111,11 +111,62 @@ resource "aws_instance" "web" {
     systemctl enable --now nginx
     cat > /usr/share/nginx/html/index.html <<'HTML'
     <!DOCTYPE html>
-    <html>
-      <head><meta charset="UTF-8"><title>NexaTech POC</title></head>
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>NexaTech POC - Innova Systems</title>
+        <style>
+          body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            font-family: Montserrat, Arial, sans-serif;
+            background: #0d2a48;
+            color: #ffffff;
+            text-align: center;
+          }
+          .brand { display: flex; align-items: center; gap: 24px; }
+          .brand svg { width: 110px; height: 108px; }
+          .name { text-align: left; line-height: 1; }
+          .name .top { font-size: 56px; font-weight: 800; letter-spacing: 1px; }
+          .name .bottom { font-size: 38px; font-weight: 300; letter-spacing: 4px; color: #b4bdd8; margin-top: 8px; }
+          .card {
+            padding: 28px 48px;
+            border: 1px solid #15416e;
+            border-radius: 16px;
+            background: #15416e;
+          }
+          .card h1 { font-size: 22px; font-weight: 600; margin: 0 0 8px; }
+          .card p { margin: 0; color: #b4bdd8; }
+          .dot { display: inline-block; width: 10px; height: 10px; background: #1caea3; margin-right: 8px; }
+        </style>
+      </head>
       <body>
-        <h1>NexaTech Solutions - POC de Infraestructura como Codigo</h1>
-        <p>Servidor creado con Terraform por Innova Systems.</p>
+        <div class="brand">
+          <svg viewBox="0 0 558 550" xmlns="http://www.w3.org/2000/svg">
+            <rect width="558" height="550" rx="70" fill="#15416e"/>
+            <rect x="103" y="113" width="55" height="55" fill="#1caea3"/>
+            <rect x="103" y="226" width="55" height="210" fill="#ffffff"/>
+            <rect x="211" y="113" width="243" height="56" fill="#ffffff"/>
+            <rect x="211" y="113" width="55" height="163" fill="#ffffff"/>
+            <rect x="211" y="221" width="243" height="55" fill="#ffffff"/>
+            <rect x="400" y="221" width="54" height="215" fill="#ffffff"/>
+            <rect x="211" y="381" width="243" height="55" fill="#ffffff"/>
+          </svg>
+          <div class="name">
+            <div class="top">INNOVA</div>
+            <div class="bottom">SYSTEMS</div>
+          </div>
+        </div>
+        <div class="card">
+          <h1><span class="dot"></span>NexaTech Solutions - POC de Infraestructura como Codigo</h1>
+          <p>Servidor creado con Terraform por Innova Systems.</p>
+        </div>
       </body>
     </html>
     HTML
